@@ -1,0 +1,10 @@
+D:\Studying\3course\6sem\Computer systems\Lab1\Lab1_CS\obj\Debug\Lab1_CS.csproj.AssemblyReference.cache
+D:\Studying\3course\6sem\Computer systems\Lab1\Lab1_CS\obj\Debug\Lab1_CS.Form1.resources
+D:\Studying\3course\6sem\Computer systems\Lab1\Lab1_CS\obj\Debug\Lab1_CS.Properties.Resources.resources
+D:\Studying\3course\6sem\Computer systems\Lab1\Lab1_CS\obj\Debug\Lab1_CS.csproj.GenerateResource.cache
+D:\Studying\3course\6sem\Computer systems\Lab1\Lab1_CS\obj\Debug\Lab1_CS.csproj.CoreCompileInputs.cache
+D:\Studying\3course\6sem\Computer systems\Lab1\Lab1_CS\bin\Debug\Lab1_CS.exe.config
+D:\Studying\3course\6sem\Computer systems\Lab1\Lab1_CS\bin\Debug\Lab1_CS.exe
+D:\Studying\3course\6sem\Computer systems\Lab1\Lab1_CS\bin\Debug\Lab1_CS.pdb
+D:\Studying\3course\6sem\Computer systems\Lab1\Lab1_CS\obj\Debug\Lab1_CS.exe
+D:\Studying\3course\6sem\Computer systems\Lab1\Lab1_CS\obj\Debug\Lab1_CS.pdb
