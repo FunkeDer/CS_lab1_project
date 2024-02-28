@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace Lab1_CS
@@ -70,9 +71,10 @@ namespace Lab1_CS
                         dataGridView1.Rows.Add(kvp.Key, kvp.Value); 
                     }
 
-                    label5.Text = $"Ентропія: {entropy}";
-                    label6.Text = $"Кількість інформації: {calcAvgEntropy(frequencies) * CalculateTotalCharactersCount(text) / 8.00} байт";
+                    label5.Text = $"Ентропія: {Math.Round(entropy,4)}";
+                    label6.Text = $"Кількість інформації: {Math.Round( calcAvgEntropy(frequencies) * CalculateTotalCharactersCount(text) / 8.00,4)} байт";
                     label8.Text = $"{CalculateTotalCharactersCount(text)}";
+                    label7.Text = $"Відношення розміру файлу до к-сті інформації: {Math.Round(fileSizeInBytes / (calcAvgEntropy(frequencies) * CalculateTotalCharactersCount(text) / 8.00), 4) }";
                 }
                 catch (Exception ex)
                 {
@@ -320,11 +322,22 @@ namespace Lab1_CS
                 result += Encode3bytes(new byte[] { arr[i], arr[i + 1], arr[i + 2] });
             }
 
-            // Обчислюємо кількість інформації в base64-закодованому варіанті
-            informationContentBase64 = result.Length * 8;
+            // Обчислюємо частоти символів у закодованому тексті
+            Dictionary<char, double> frequencies = CalculateRelativeFrequencies(result);
+
+            // Обчислюємо ентропію закодованого тексту
+            double entropy = calcAvgEntropy(frequencies);
+
+            // Обчислюємо кількість інформації в байтах для base64-закодованого тексту
+            informationContentBase64 = entropy * result.Length / 8.0;
+
+            // Виводимо результат в label4
+            label4.Text = $"К-сть інформації: {Math.Round(informationContentBase64,2)} байт";
 
             return result;
         }
+
+
 
 
 
@@ -398,9 +411,6 @@ namespace Lab1_CS
 
                     // Кількість інформації в байтах (поділено на 8 бітів в байті)
                     double informationContentBytes = informationContentBase64 / 8;
-
-                    // Відображаємо кількість інформації в байтах
-                    label4.Text = $"Кількість інформації в base64: {informationContentBytes} байт";
 
                     // Відображаємо закодований рядок в richTextBox
                     richTextBox2.Text = base64EncodedString;
